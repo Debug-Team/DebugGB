@@ -1,0 +1,6 @@
+module GroupPurchaseManagementSystemModule{
+    interface GroupPurchaseManagementSystem{
+        boolean confirmPurchase(in string sellerSecretKey, in string confirm);
+        boolean publishGroupPurchaseItem(in string sellerSecretKey, in string productName, in string introduction, in double price, in long limit);
+    };
+};
