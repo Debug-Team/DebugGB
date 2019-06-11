@@ -1,5 +1,6 @@
 import assignment3.GroupPurchaseManagementSystem;
 import assignment3.GroupPurchaseManagementSystemFactory;
+import shortMessage.ShortMessages;
 
 public class Main {
 
@@ -7,5 +8,6 @@ public class Main {
 
 //        GroupPurchaseManagementSystem ins = GroupPurchaseManagementSystemFactory
 
+//        ShortMessages.send("ad", "asdasd");
     }
 }
