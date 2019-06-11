@@ -1,6 +1,11 @@
+import assignment3.GroupPurchaseManagementSystem;
+import assignment3.GroupPurchaseManagementSystemFactory;
+
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+
+//        GroupPurchaseManagementSystem ins = GroupPurchaseManagementSystemFactory
+
     }
 }
