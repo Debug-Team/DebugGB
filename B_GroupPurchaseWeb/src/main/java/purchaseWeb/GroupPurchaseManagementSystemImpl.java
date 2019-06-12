@@ -10,6 +10,7 @@ public class GroupPurchaseManagementSystemImpl implements GroupPurchaseManagemen
 
     public List<GroupPurchaseItem> listGroupPurchase() {
         try {
+            System.out.println("-------------获取今日团购-------------");
             return PurchaseWebRMIHelper.getRemotePurchaseService().listGroupPurchase();
         } catch (RemoteException e) {
             e.printStackTrace();
@@ -19,6 +20,7 @@ public class GroupPurchaseManagementSystemImpl implements GroupPurchaseManagemen
 
     public boolean submitPurchase(String s, String s1, String s2, String s3) {
         try {
+            System.out.println("-------------提交购买-------------");
             return PurchaseWebRMIHelper.getRemotePurchaseService().submitPurchase(s, s1, s2, s3);
         } catch (RemoteException e) {
             e.printStackTrace();
