@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface PurchaseWebService extends Remote {
 
-    List<GroupPurchaseItem> listGroupPurchase() throws RemoteException;
+    List<MyGroupPurchaseItem> listGroupPurchase() throws RemoteException;
 
     boolean submitPurchase(String itemId, String bankAccount, String
             password, String phone) throws RemoteException;

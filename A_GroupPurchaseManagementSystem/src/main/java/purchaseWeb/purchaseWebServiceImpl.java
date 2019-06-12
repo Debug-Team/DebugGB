@@ -4,6 +4,7 @@ import assignment3.*;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
 import java.util.List;
 
 public class purchaseWebServiceImpl extends UnicastRemoteObject implements PurchaseWebService {
@@ -18,8 +19,13 @@ public class purchaseWebServiceImpl extends UnicastRemoteObject implements Purch
     }
 
     @Override
-    public List<GroupPurchaseItem> listGroupPurchase() throws RemoteException {
-        return this.groupPurchaseManagementSystem.listGroupPurchase();
+    public List<MyGroupPurchaseItem> listGroupPurchase() throws RemoteException {
+        List<GroupPurchaseItem> list = this.groupPurchaseManagementSystem.listGroupPurchase();
+        List<MyGroupPurchaseItem> res = new ArrayList<>();
+        for (GroupPurchaseItem groupPurchaseItem : list) {
+            res.add(new MyGroupPurchaseItem(groupPurchaseItem));
+        }
+        return res;
     }
 
     @Override

@@ -4,6 +4,7 @@ import assignment3.GroupPurchaseItem;
 import assignment3.GroupPurchaseManagementSystem;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class GroupPurchaseManagementSystemImpl implements GroupPurchaseManagementSystem {
@@ -11,7 +12,12 @@ public class GroupPurchaseManagementSystemImpl implements GroupPurchaseManagemen
     public List<GroupPurchaseItem> listGroupPurchase() {
         try {
             System.out.println("-------------获取今日团购-------------");
-            return PurchaseWebRMIHelper.getRemotePurchaseService().listGroupPurchase();
+            List<MyGroupPurchaseItem> list = PurchaseWebRMIHelper.getRemotePurchaseService().listGroupPurchase();
+            List<GroupPurchaseItem> res = new ArrayList<GroupPurchaseItem>();
+            for (MyGroupPurchaseItem myGroupPurchaseItem : list) {
+                res.add(myGroupPurchaseItem.standard());
+            }
+            return res;
         } catch (RemoteException e) {
             e.printStackTrace();
         }
