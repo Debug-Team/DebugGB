@@ -1,15 +1,17 @@
 package shortMessage;
 
+import assignment3.ShortMessageSender;
 import shortMessage.webService.ShortMessageServiceImpl;
 import shortMessage.webService.ShortMessageServiceImplService;
 
-public class ShortMessages {
+public class ShortMessageSenderImpl implements ShortMessageSender {
 
-    public static boolean send(String receiver, String msg) {
+    @Override
+    public boolean sendMessage(String s, String s1) {
 
         ShortMessageServiceImplService shortMessageServiceImplService = new ShortMessageServiceImplService();
         ShortMessageServiceImpl shortMessageService = shortMessageServiceImplService.getShortMessageServiceImplPort();
-        return shortMessageService.sendMessage(receiver, msg);
+        return shortMessageService.sendMessage(s, s1);
 
     }
 }

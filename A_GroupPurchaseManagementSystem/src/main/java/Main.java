@@ -1,7 +1,7 @@
 import assignment3.GroupPurchaseManagementSystem;
 import assignment3.GroupPurchaseManagementSystemFactory;
 import corba.GroupPurchaseManagementSystemCORBAServer;
-import shortMessage.ShortMessages;
+import purchaseWeb.PurchaseWebRMIHelper;
 
 public class Main {
 
@@ -9,8 +9,7 @@ public class Main {
 
 //        GroupPurchaseManagementSystem ins = GroupPurchaseManagementSystemFactory
 
-//        ShortMessages.send("ad", "asdasd");
-
+        PurchaseWebRMIHelper.initRMI();
 //        GroupPurchaseManagementSystemCORBAServer corbaServer = new GroupPurchaseManagementSystemCORBAServer();
     }
 }
