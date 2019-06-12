@@ -19,11 +19,12 @@ public class GroupPurchaseManagementSystemCORBAServer {
     private org.omg.CORBA.Object objRef;
     private NamingContextExt ncRef;
 
-    public GroupPurchaseManagementSystemCORBAServer(){
+    public GroupPurchaseManagementSystemCORBAServer(assignment3.GroupPurchaseManagementSystem systemInstance){
         try {
             //启动orb端口
             String[] command = {"orbd", "-ORBInitialPort", "6000", "-ORBInitialHost", "127.0.0.1"};
             Process p = Runtime.getRuntime().exec(command);
+            Thread.sleep(5000);     //等待端口启动
 //            p.waitFor();
 //            p.destroy();
 
@@ -42,7 +43,7 @@ public class GroupPurchaseManagementSystemCORBAServer {
             rootPOA.the_POAManager().activate();
 
             //创建一个GroupPurchaseManagementSystemCORBA实例
-            GroupPurchaseManagementSystemCORBA groupPurchaseManagementSystemCORBA = new GroupPurchaseManagementSystemCORBA();
+            GroupPurchaseManagementSystemCORBA groupPurchaseManagementSystemCORBA = new GroupPurchaseManagementSystemCORBA(systemInstance);
 
             //从服务中得到对象的引用,并注册到服务中
             ref = rootPOA.servant_to_reference(groupPurchaseManagementSystemCORBA);

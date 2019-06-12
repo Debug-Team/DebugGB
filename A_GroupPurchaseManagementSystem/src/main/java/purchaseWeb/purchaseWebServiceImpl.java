@@ -18,6 +18,10 @@ public class purchaseWebServiceImpl extends UnicastRemoteObject implements Purch
         this.groupPurchaseManagementSystem = GroupPurchaseManagementSystemFactory.createGroupPurchaseManagementSystem(shortMessageSender, bankSystem);
     }
 
+    public purchaseWebServiceImpl(GroupPurchaseManagementSystem systemInstance) throws RemoteException{
+        this.groupPurchaseManagementSystem = systemInstance;
+    }
+
     @Override
     public List<MyGroupPurchaseItem> listGroupPurchase() throws RemoteException {
         List<GroupPurchaseItem> list = this.groupPurchaseManagementSystem.listGroupPurchase();
