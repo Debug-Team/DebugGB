@@ -24,6 +24,7 @@ public class GroupPurchaseManagementSystemCORBAServer {
             //启动orb端口
             String[] command = {"orbd", "-ORBInitialPort", "6000", "-ORBInitialHost", "127.0.0.1"};
             Process p = Runtime.getRuntime().exec(command);
+            System.out.println("等待ORB端口启动");
             Thread.sleep(5000);     //等待端口启动
 //            p.waitFor();
 //            p.destroy();
