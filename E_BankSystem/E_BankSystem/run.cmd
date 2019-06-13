@@ -1,0 +1,1 @@
+regsvr32 D:\Projects\DebugGB\E_BankSystem\E_BankSystem\BankSystemAtl.dll
