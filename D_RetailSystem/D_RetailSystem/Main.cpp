@@ -23,7 +23,7 @@ public:
 		z_socket = zmq_socket(context, ZMQ_REQ);
 
 		//zmq_connect(z_socket, "tcp://127.0.0.1:7777");    // accept connections on a socket
-		zmq_connect(z_socket, "tcp://127.0.0.1:7777");    // accept connections on a socket
+		zmq_connect(z_socket, "tcp://192.168.3.1:7777");    // accept connections on a socket
 
 	}
 	~RemoteBankSystem(){		//Îö¹¹£¬ÊÍ·Åsocket
@@ -127,7 +127,7 @@ int main(int argc, char** argv){
 	try{
 		int argc = 2;
 		//char* arguments[2] = {"-ORBInitRef", "NameService=corbaloc::127.0.0.1:6000/NameService"};
-		char* arguments[2] = { "-ORBInitRef", "NameService=corbaloc::127.0.0.1:6000/NameService"};
+		char* arguments[2] = { "-ORBInitRef", "NameService=corbaloc::192.168.3.1:6000/NameService"};
 
 		//Init orb
 		//CORBA::ORB_var orb = CORBA::ORB_init(argc, argv);
