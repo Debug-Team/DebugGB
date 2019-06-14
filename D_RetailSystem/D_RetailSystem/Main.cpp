@@ -22,7 +22,9 @@ public:
 		context = zmq_init(3);    //指定zmq 处理I/0事件的thread pool 为1
 		z_socket = zmq_socket(context, ZMQ_REQ);
 
+		//zmq_connect(z_socket, "tcp://127.0.0.1:7777");    // accept connections on a socket
 		zmq_connect(z_socket, "tcp://127.0.0.1:7777");    // accept connections on a socket
+
 	}
 	~RemoteBankSystem(){		//析构，释放socket
 		zmq_close(z_socket);
@@ -124,7 +126,9 @@ int main(int argc, char** argv){
 	//A 团购管理系统
 	try{
 		int argc = 2;
-		char* arguments[2] = {"-ORBInitRef", "NameService=corbaloc::127.0.0.1:6000/NameService"};
+		//char* arguments[2] = {"-ORBInitRef", "NameService=corbaloc::127.0.0.1:6000/NameService"};
+		char* arguments[2] = { "-ORBInitRef", "NameService=corbaloc::127.0.0.1:6000/NameService"};
+
 		//Init orb
 		//CORBA::ORB_var orb = CORBA::ORB_init(argc, argv);
 		CORBA::ORB_var orb = CORBA::ORB_init(argc, (char**)arguments);

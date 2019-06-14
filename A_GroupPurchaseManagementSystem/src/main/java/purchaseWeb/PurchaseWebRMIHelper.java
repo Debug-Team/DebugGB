@@ -3,6 +3,7 @@ package purchaseWeb;
 import assignment3.GroupPurchaseManagementSystem;
 import banksystem.BankSystemImpl;
 import shortMessage.ShortMessageSenderImpl;
+import util.IPUtil;
 
 import java.rmi.Naming;
 import java.rmi.registry.LocateRegistry;
@@ -14,7 +15,8 @@ public class PurchaseWebRMIHelper {
             System.out.println("-------------RMI连接启动-------------");
             PurchaseWebService purchaseWebService = new purchaseWebServiceImpl(systemInstance);
             LocateRegistry.createRegistry(8888);
-            Naming.rebind("rmi://localhost:8888/purchaseWebService", purchaseWebService);
+//            Naming.rebind("rmi://localhost:8888/purchaseWebService", purchaseWebService);
+            Naming.rebind("rmi://" + IPUtil.THIS_IP + ":8888/purchaseWebService", purchaseWebService);
         } catch (Exception e) {
             System.out.println("-------------RMI连接失败-------------");
             e.printStackTrace();

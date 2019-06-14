@@ -8,6 +8,7 @@ import org.omg.CosNaming.NamingContextExt;
 import org.omg.CosNaming.NamingContextExtHelper;
 import org.omg.PortableServer.POA;
 import org.omg.PortableServer.POAHelper;
+import util.IPUtil;
 
 import java.util.Properties;
 
@@ -21,8 +22,10 @@ public class GroupPurchaseManagementSystemCORBAServer {
 
     public GroupPurchaseManagementSystemCORBAServer(assignment3.GroupPurchaseManagementSystem systemInstance){
         try {
+//            String hostIP = "127.0.0.1";
+            String hostIP = IPUtil.THIS_IP;
             //启动orb端口
-            String[] command = {"orbd", "-ORBInitialPort", "6000", "-ORBInitialHost", "127.0.0.1"};
+            String[] command = {"orbd", "-ORBInitialPort", "6000", "-ORBInitialHost", hostIP};
             Process p = Runtime.getRuntime().exec(command);
             System.out.println("等待ORB端口启动");
             Thread.sleep(5000);     //等待端口启动
@@ -32,7 +35,7 @@ public class GroupPurchaseManagementSystemCORBAServer {
             String[] args = {};
             Properties properties = new Properties();
 
-            properties.put("org.omg.CORBA.ORBInitialHost", "127.0.0.1");  //指定ORB的ip地址
+            properties.put("org.omg.CORBA.ORBInitialHost", hostIP);  //指定ORB的ip地址
             properties.put("org.omg.CORBA.ORBInitialPort", "6000");       //指定ORB的端口
 
             //创建一个ORB实例

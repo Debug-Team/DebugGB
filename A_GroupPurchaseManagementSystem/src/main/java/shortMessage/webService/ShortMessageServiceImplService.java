@@ -1,6 +1,8 @@
 
 package shortMessage.webService;
 
+import util.IPUtil;
+
 import java.net.MalformedURLException;
 import java.net.URL;
 import javax.xml.namespace.QName;
@@ -30,7 +32,8 @@ public class ShortMessageServiceImplService
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("http://localhost:9000/sendShortMessages?wsdl");
+//            url = new URL("http://localhost:9000/sendShortMessages?wsdl");
+            url = new URL("http://"+ IPUtil.REMOTE_IP +":9000/sendShortMessages?wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }
