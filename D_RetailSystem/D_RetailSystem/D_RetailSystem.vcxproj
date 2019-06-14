@@ -86,16 +86,20 @@
       <SuppressStartupBanner>false</SuppressStartupBanner>
       <AdditionalOptions />
       <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:\Projects\DebugGB\D_RetailSystem\D_RetailSystem;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ImportLibrary>BankSystemAtl.dll</ImportLibrary>
     </Link>
     <BuildLog>
       <Path>$(IntDir)$(MSBuildProjectName).log</Path>
     </BuildLog>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BankSystemCORBA.cpp" />
     <ClCompile Include="GroupPurchaseManagementSystemCORBA.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BankSystemCORBA.h" />
     <ClInclude Include="GroupPurchaseManagementSystemCORBA.h" />
     <ClInclude Include="RetailSystem.h" />
   </ItemGroup>
@@ -103,6 +107,8 @@
     <Library Include="F:\omniORB-4.1.5\lib\x86_win32\omniDynamic415_rt.lib" />
     <Library Include="F:\omniORB-4.1.5\lib\x86_win32\omniORB415_rt.lib" />
     <Library Include="F:\omniORB-4.1.5\lib\x86_win32\omnithread34_rt.lib" />
+    <Library Include="libzmq-v100-mt-4_0_4.lib" />
+    <Library Include="libzmq-v100-mt-gd-4_0_4.lib" />
     <Library Include="RetailSystem_vc10_md.lib" />
     <Library Include="RetailSystem_vc10_mdd.lib" />
     <Library Include="RetailSystem_vc10_mt.lib" />
